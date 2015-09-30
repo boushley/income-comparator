@@ -1,0 +1,35 @@
+{
+  "name": "income-comparator",
+  "version": "1.0.0",
+  "description": "A simple tool to compare incomes of different types.",
+  "main": "index.js",
+  "dependencies": {
+    "jsx-loader": "^0.13.2",
+    "react": "^0.13.3",
+    "react-redux": "^3.0.1",
+    "redux": "^3.0.2",
+    "redux-devtools": "^2.1.5"
+  },
+  "devDependencies": {
+    "babel-loader": "^5.3.2",
+    "http-server": "^0.8.5",
+    "redux-devtools": "^2.1.5",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.0"
+  },
+  "scripts": {
+    "start": "npm run serve | npm run dev",
+    "serve": "./node_modules/.bin/http-server -p 8080",
+    "dev": "webpack-dev-server --progress --colors --port 8090"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boushley/income-comparator.git"
+  },
+  "author": "Aaron Boushley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/boushley/income-comparator/issues"
+  },
+  "homepage": "https://github.com/boushley/income-comparator#readme"
+}
