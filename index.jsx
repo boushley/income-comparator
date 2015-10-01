@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react');
-var HelloMessage = require('./components/hello');
+import {render} from 'react';
+import HelloMessage from './components/hello'
 
-React.render(<HelloMessage name="John" />, document.getElementById('content'));
+render(<HelloMessage name="John" />, document.getElementById('content'));
