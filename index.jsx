@@ -1,6 +1,13 @@
 'use strict';
 
 import {render} from 'react';
-import HelloMessage from './components/hello'
+import Comparison from './components/comparison'
 
-render(<HelloMessage name="John" />, document.getElementById('content'));
+require('./styles/app.less');
+
+var incomes = [
+    {type: 'hourly', rate: 60},
+    {type: 'salary', wage: 80500}
+];
+
+render(<Comparison incomes={incomes} />, document.getElementById('content'));

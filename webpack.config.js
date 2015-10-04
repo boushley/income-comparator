@@ -1,10 +1,12 @@
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
     entry: './index.jsx',
     output: {
-        filename: 'bundle.js', //this is the default name, so you can skip it
+        filename: 'app.js', //this is the default name, so you can skip it
         //at this directory our bundle file will be available
         //make sure port 8090 is used when launching webpack-dev-server
-        publicPath: 'http://localhost:8090/assets'
+        publicPath: 'http://localhost:8090/assets/'
     },
     module: {
         loaders: [
@@ -12,6 +14,18 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel'
+            },
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+            },
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
+            },
+            {
+                test: /\.(woff2?|ttf|eot|svg)$/,
+                loader: 'file-loader'
             }
         ]
     },
@@ -22,5 +36,8 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
-    }
+    },
+    plugins: [
+        new ExtractTextPlugin('styles.css', { allChunks: true })
+    ]
 };
