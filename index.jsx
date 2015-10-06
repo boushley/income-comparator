@@ -1,13 +1,19 @@
 'use strict';
 
 import {render} from 'react';
-import Comparison from './components/comparison'
+import Comparison from './components/comparison';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import comparisonApp from './reducers/root';
 
 require('./styles/app.less');
 
-var incomes = [
-    {type: 'hourly', rate: 60, employmentType: 'self'},
-    {type: 'salary', wage: 80500, employmentType: 'employee'}
-];
+let store = createStore(comparisonApp);
+let rootElement = document.getElementById('content');
 
-render(<Comparison incomes={incomes} />, document.getElementById('content'));
+React.render(
+  <Provider store={store}>
+    {() => <Comparison />}
+  </Provider>,
+  rootElement
+);

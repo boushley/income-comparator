@@ -1,12 +1,21 @@
 'use strict';
 
 import {Component} from 'react';
+import { connect } from 'react-redux';
 import IncomeList from './income-list'
 
-export default class Comparison extends Component {
+class Comparison extends Component {
   render() {
     return <div>
         <IncomeList incomes={this.props.incomes} />
-    </div>;
+      </div>;
   }
 }
+
+function select(state) {
+  return {
+    incomes: state.incomes
+  };
+}
+
+export default connect(select)(Comparison);
