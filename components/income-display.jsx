@@ -1,18 +1,32 @@
 'use strict';
 
-import {typeInterfaces} from '../lib/income-types'
+import {createClass} from 'react';
+import {typeInterfaces} from '../lib/income-types';
+import {FormattedNumber} from 'react-intl';
 
-export default React.createClass({
+export let Display = createClass({
   render: function() {
     let income = this.props.income;
     let displayer = typeInterfaces[income.type](income);
-    return <li>
+    return <li className="col-md-2">
       <h4>{displayer.getDisplay()}</h4>
       <dl>
         <dt>Monthly Gross</dt>
-        <dd>{displayer.getGross()}</dd>
+        <dd>
+          <FormattedNumber value={displayer.getGross()} style="currency" currency="USD" />
+        </dd>
       </dl>
     </li>;
   }
 });
 
+export let Headers = createClass({
+  render: function() {
+    return <li className="headers col-md-2">
+      <h4>Headers</h4>
+      <dl>
+        <dt>Monthly Gross</dt>
+      </dl>
+    </li>;
+  }
+});

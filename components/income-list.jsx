@@ -1,14 +1,15 @@
 'use strict';
 
-import IncomeDisplay from './income-display'
+import {createClass} from 'react';
+import {Headers, Display} from './income-display'
 
-export default React.createClass({
+export default createClass({
   render: function() {
-    let displays = [];
+    let displays = [<Headers/>];
     this.props.incomes.forEach(function(i) {
-      displays.push(<IncomeDisplay income={i} />);
+      displays.push(<Display income={i} />);
     });
-    return <ul className="horizontal-list">
+    return <ul className="horizontal-list row">
       {displays}
     </ul>;
   }
