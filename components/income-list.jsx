@@ -1,10 +1,10 @@
 'use strict';
 
-import {createClass} from 'react';
+import {Component} from 'react';
 import {Headers, Display} from './income-display'
 
-export default createClass({
-  render: function() {
+export default class IncomeList extends Component {
+  render() {
     let displays = [<Headers/>];
     this.props.incomes.forEach(function(i) {
       displays.push(<Display income={i} />);
@@ -13,5 +13,5 @@ export default createClass({
       {displays}
     </ul>;
   }
-});
+}
 

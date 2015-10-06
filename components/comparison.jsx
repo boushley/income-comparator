@@ -1,12 +1,12 @@
 'use strict';
 
-import {createClass} from 'react';
+import {Component} from 'react';
 import IncomeList from './income-list'
 
-export default createClass({
-  render: function() {
+export default class Comparison extends Component {
+  render() {
     return <div>
         <IncomeList incomes={this.props.incomes} />
     </div>;
   }
-});
+}

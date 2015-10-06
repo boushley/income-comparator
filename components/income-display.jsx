@@ -1,12 +1,12 @@
 'use strict';
 
-import {createClass} from 'react';
+import {Component} from 'react';
 import {typeInterfaces} from '../lib/income-types';
 import {FormattedNumber} from 'react-intl';
 
 
-export let Display = createClass({
-  render: function() {
+export class Display extends Component {
+  render() {
     let income = this.props.income;
     let displayer = typeInterfaces[income.type](income);
     return <li className="col-md-2">
@@ -23,9 +23,10 @@ export let Display = createClass({
       </dl>
     </li>;
   }
-});
-export let Headers = createClass({
-  render: function() {
+}
+
+export class Headers extends Component {
+  render() {
     return <li className="headers col-md-2">
       <h4>Headers</h4>
       <dl>
@@ -34,4 +35,4 @@ export let Headers = createClass({
       </dl>
     </li>;
   }
-});
+}
