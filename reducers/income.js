@@ -1,5 +1,5 @@
 export const initialState = [
-    {type: 'hourly', rate: 60, employmentType: 'self'},
+    {type: 'hourly', rate: 60, hoursPerWeek: 40, weeksPerYear: 45, employmentType: 'self'},
     {type: 'salary', wage: 80500, employmentType: 'employee'}
 ];
 
