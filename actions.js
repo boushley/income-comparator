@@ -1,0 +1,2 @@
+export const INCOME_UPDATE = 'INCOME_UPDATE';
+
